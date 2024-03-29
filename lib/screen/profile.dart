@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:self_billing/constants/sizes.dart';
 import 'package:self_billing/screen/change_password.dart';
+import 'package:self_billing/screen/orderhistory.dart';
 import 'package:self_billing/screen/personal_details.dart';
+import 'package:self_billing/screen/review.dart';
 
 
 class ProfileOnePage extends StatelessWidget {
@@ -93,11 +95,17 @@ class ProfileOnePage extends StatelessWidget {
                   onTap: () {
                     Navigator.push(
       context,
-      MaterialPageRoute(builder: (context) => change_password()));
+      MaterialPageRoute(builder: (context) => OrderHistory()));
                   }, 
           child:  profileButtons(Icons.history,"My Orders"))),
           h3,
-          profileButtons(Icons.star, "Reviews"),
+          InkWell(child:InkWell(
+                  onTap: () {
+                    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => Review()));
+                  }, 
+          child:  profileButtons(Icons.star, "Reviews"))),
           h3,
           InkWell(child:InkWell(
                   onTap: () {

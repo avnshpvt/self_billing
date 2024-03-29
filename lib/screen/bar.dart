@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_floating_bottom_bar/flutter_floating_bottom_bar.dart';
+import 'package:self_billing/screen/qrscanner.dart';
 import 'package:self_billing/screen/user_home.dart';
 import 'package:self_billing/screen/user_viewcart.dart';
 
@@ -93,7 +94,7 @@ class _MyHomePageState extends State<MyHomePage1> with SingleTickerProviderState
                 top: -38,
                 child: FloatingActionButton(
                   onPressed: () {
-                    
+                    Navigator.of(context).push(MaterialPageRoute(builder: (context) => ScanCodePage(),));
                   },
                   child: Icon(Icons.qr_code_scanner),
                   backgroundColor: Colors.white,

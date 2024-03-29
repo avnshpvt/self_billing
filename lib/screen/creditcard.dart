@@ -1,7 +1,7 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_credit_card/flutter_credit_card.dart';
+import 'package:self_billing/constants/colors.dart';
 
 
 class MySample extends StatefulWidget {
@@ -45,7 +45,7 @@ class MySampleState extends State<MySample> {
         ),
         colorScheme: ColorScheme.fromSeed(
           brightness: Brightness.light,
-          seedColor: const Color.fromARGB(255, 199, 55, 55),
+          seedColor: Colors.white,
           background: Colors.black,
           // Defines colors like cursor color of the text fields.
           primary: Colors.black,
@@ -61,19 +61,19 @@ class MySampleState extends State<MySample> {
       darkTheme: ThemeData(
         textTheme: const TextTheme(
           // Text style for text fields' input.
-          titleMedium: TextStyle(color: Color.fromARGB(255, 186, 17, 17), fontSize: 18),
+          titleMedium: TextStyle(color: Colors.white, fontSize: 18),
         ),
         colorScheme: ColorScheme.fromSeed(
           brightness: Brightness.dark,
           seedColor: Colors.black,
-          background: Color.fromARGB(255, 200, 237, 32),
+          background: Colors.white,
           // Defines colors like cursor color of the text fields.
-          primary: Color.fromARGB(255, 94, 211, 40),
+          primary: Colors.white,
         ),
         // Decoration theme for the text fields.
         inputDecorationTheme: InputDecorationTheme(
-          hintStyle: const TextStyle(color: Color.fromARGB(255, 232, 9, 9)),
-          labelStyle: const TextStyle(color: Color.fromARGB(255, 142, 87, 87)),
+          hintStyle: const TextStyle(color: Colors.black54),
+          labelStyle: const TextStyle(color: Colors.black54),
           focusedBorder: border,
           enabledBorder: border,
         ),
@@ -86,7 +86,7 @@ class MySampleState extends State<MySample> {
               decoration: BoxDecoration(
                 image: DecorationImage(
                   image: ExactAssetImage(
-                    isLightTheme ? 'assets/bg-light.png' : 'assets/bg-dark.png',
+                    isLightTheme ? 'assets/images/bg-light.png' : 'assets/images/bg-dark.png',
                   ),
                   fit: BoxFit.fill,
                 ),
@@ -110,7 +110,7 @@ class MySampleState extends State<MySample> {
                       expiryDate: expiryDate,
                       cardHolderName: cardHolderName,
                       cvvCode: cvvCode,
-                      bankName: 'Axis Bank',
+                      //bankName: 'Axis Bank',
                       frontCardBorder: useGlassMorphism
                           ? null
                           : Border.all(color: Colors.grey),
@@ -122,10 +122,10 @@ class MySampleState extends State<MySample> {
                       obscureCardCvv: true,
                       isHolderNameVisible: true,
                       cardBgColor: isLightTheme
-                          ? Colors.green //AppColors.cardBgLightColor
-                          : Colors.red,//AppColors.cardBgColor,
-                      backgroundImage:
-                          useBackgroundImage ? 'assets/card_bg.png' : null,
+                          ? AppColors.cardBgLightColor
+                          : AppColors.cardBgColor,
+                      backgroundImage:'assets/images/card_bg.png',
+                          //useBackgroundImage ? 'assets/images/card_bg.png' :,
                       isSwipeGestureEnabled: true,
                       onCreditCardWidgetChange:
                           (CreditCardBrand creditCardBrand) {},
@@ -133,7 +133,7 @@ class MySampleState extends State<MySample> {
                         CustomCardTypeIcon(
                           cardType: CardType.mastercard,
                           cardImage: Image.asset(
-                            'assets/mastercard.png',
+                            'assets/images/mastercard.png',
                             height: 48,
                             width: 48,
                           ),
@@ -187,7 +187,7 @@ class MySampleState extends State<MySample> {
                                     value: useGlassMorphism,
                                     inactiveTrackColor: Colors.grey,
                                     activeColor: Colors.white,
-                                    activeTrackColor: Colors.green,//AppColors.colorE5D1B2,
+                                    activeTrackColor: AppColors.colorE5D1B2,
                                     onChanged: (bool value) => setState(() {
                                       useGlassMorphism = value;
                                     }),
@@ -207,7 +207,7 @@ class MySampleState extends State<MySample> {
                                     value: useBackgroundImage,
                                     inactiveTrackColor: Colors.grey,
                                     activeColor: Colors.white,
-                                    activeTrackColor: Colors.green,//AppColors.colorE5D1B2,
+                                    activeTrackColor: AppColors.colorE5D1B2,
                                     onChanged: (bool value) => setState(() {
                                       useBackgroundImage = value;
                                     }),
@@ -227,7 +227,7 @@ class MySampleState extends State<MySample> {
                                     value: useFloatingAnimation,
                                     inactiveTrackColor: Colors.grey,
                                     activeColor: Colors.white,
-                                    activeTrackColor: Colors.green,//AppColors.colorE5D1B2,
+                                    activeTrackColor: AppColors.colorE5D1B2,
                                     onChanged: (bool value) => setState(() {
                                       useFloatingAnimation = value;
                                     }),
@@ -246,13 +246,13 @@ class MySampleState extends State<MySample> {
                                 decoration: const BoxDecoration(
                                   gradient: LinearGradient(
                                     colors: <Color>[
-                                      Colors.green,//AppColors.colorB58D67,
-                                      Color.fromARGB(255, 68, 102, 164),//AppColors.colorB58D67,
-                                      Color.fromARGB(255, 54, 23, 88),//AppColors.colorE5D1B2,
-                                      Color.fromARGB(255, 187, 141, 42),//AppColors.colorF9EED2,
-                                     Color.fromARGB(255, 121, 125, 173),// AppColors.colorEFEFED,
-                                      Color.fromARGB(255, 207, 54, 30),//AppColors.colorF9EED2,
-                                      Color.fromARGB(255, 124, 169, 208),//AppColors.colorB58D67,
+                                      AppColors.colorB58D67,
+                                      AppColors.colorB58D67,
+                                      AppColors.colorE5D1B2,
+                                      AppColors.colorF9EED2,
+                                      AppColors.colorEFEFED,
+                                      AppColors.colorF9EED2,
+                                      AppColors.colorB58D67,
                                     ],
                                     begin: Alignment(-1, -4),
                                     end: Alignment(1, 4),

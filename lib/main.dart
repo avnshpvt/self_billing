@@ -30,7 +30,7 @@ class MyApp extends StatelessWidget {
       ),
       home:
       //HomeScreen()
-      MySample()
+      MyHomePage1()
       //BottomNavScreen(),
     );
   }

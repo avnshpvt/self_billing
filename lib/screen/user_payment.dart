@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
 import 'package:flutter/material.dart';
+import 'package:self_billing/constants/sizes.dart';
+import 'package:self_billing/screen/creditcard.dart';
 
 class PaymentOptionScreen extends StatelessWidget {
   @override
@@ -22,7 +24,7 @@ class PaymentOptionScreen extends StatelessWidget {
                 // Navigate to credit card payment screen
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => CreditCardPaymentScreen()),
+                  MaterialPageRoute(builder: (context) => MySample()),
                 );
               },
             ),
@@ -49,11 +51,11 @@ class PaymentOptionScreen extends StatelessWidget {
                   MaterialPageRoute(builder: (context) => GooglePayPaymentScreen()),
                 );
               },
-            ),
+            ),h70,
 
             Container(
               //height: 60,
-              child:Image.asset('assets/images/img.jpg'))
+              child:Image.asset('assets/images/cards.png'))
           ],
         ),
       ),
