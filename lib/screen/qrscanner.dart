@@ -1,3 +1,5 @@
+
+
 import 'dart:typed_data';
 
 import 'package:flutter/material.dart';
@@ -29,7 +31,8 @@ class _ScanCodePageState extends State<ScanCodePage> {
           ),
         ],
       ),
-      body: Center(
+      body: 
+      Center(
         child: Container(height: 700,width: 400,
           child: MobileScanner(
             controller: MobileScannerController(

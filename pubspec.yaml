@@ -41,8 +41,10 @@ dependencies:
   flutter_rating_bar:
   flutter_credit_card:
   qr_code_scanner:
-  mobile_scanner:
+  mobile_scanner: ^4.0.1
   data_table_2:
+  upi_india:
+  dio: ^5.4.2+1
   
 dev_dependencies:
   flutter_test:

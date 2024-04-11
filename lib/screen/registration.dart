@@ -4,25 +4,28 @@
   */
 import 'package:flutter/material.dart';
 import 'package:self_billing/screen/bar.dart';
-import 'package:self_billing/screen/reg.dart';
-import 'package:self_billing/screen/registration.dart';
+import 'package:self_billing/screen/login.dart';
 import 'package:self_billing/screen/staff_home.dart';
 import 'package:self_billing/services/loginApi.dart';
+import 'package:self_billing/services/user/registrationApi.dart';
 
-class LoginSevenPage extends StatefulWidget {
+class Reg1 extends StatefulWidget {
   static const String path = "lib/src/pages/login/login7.dart";
 
-  const LoginSevenPage({super.key});
+  const Reg1({super.key});
   @override
-  _LoginSevenPageState createState() => _LoginSevenPageState();
+  _Reg1State createState() => _Reg1State();
 }
 
   final emailController = TextEditingController();
   final passwordController = TextEditingController();
-  ValueNotifier<bool> isClicked = ValueNotifier(false);
+  final firstnameController = TextEditingController();
+  final lastnameController = TextEditingController();
+  final phoneController = TextEditingController();
+  final confirmpasswordController = TextEditingController();
 
 
-class _LoginSevenPageState extends State<LoginSevenPage> {
+class _Reg1State extends State<Reg1> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -96,6 +99,62 @@ class _LoginSevenPageState extends State<LoginSevenPage> {
               elevation: 2.0,
               borderRadius: const BorderRadius.all(Radius.circular(30)),
               child: TextFormField(
+                controller: firstnameController,
+                onChanged: (String value) {},
+                cursorColor: Colors.deepPurpleAccent,
+                decoration: const InputDecoration(
+                    hintText: "First name",
+                    prefixIcon: Material(
+                      elevation: 0,
+                      borderRadius: BorderRadius.all(Radius.circular(30)),
+                      child: Icon(
+                        Icons.person_pin,
+                        color: Colors.deepPurpleAccent,
+                      ),
+                    ),
+                    border: InputBorder.none,
+                    contentPadding:
+                        EdgeInsets.symmetric(horizontal: 25, vertical: 13)),
+              ),
+            ),
+          ),
+          const SizedBox(
+            height: 20,
+          ),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 32),
+            child: Material(
+              elevation: 2.0,
+              borderRadius: const BorderRadius.all(Radius.circular(30)),
+              child: TextFormField(
+                controller: lastnameController,
+                onChanged: (String value) {},
+                cursorColor: Colors.deepPurpleAccent,
+                decoration: const InputDecoration(
+                    hintText: "Last name",
+                    prefixIcon: Material(
+                      elevation: 0,
+                      borderRadius: BorderRadius.all(Radius.circular(30)),
+                      child: Icon(
+                        Icons.person_pin,
+                        color: Colors.deepPurpleAccent,
+                      ),
+                    ),
+                    border: InputBorder.none,
+                    contentPadding:
+                        EdgeInsets.symmetric(horizontal: 25, vertical: 13)),
+              ),
+            ),
+          ),
+          const SizedBox(
+            height: 25,
+          ),
+           Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 32),
+            child: Material(
+              elevation: 2.0,
+              borderRadius: const BorderRadius.all(Radius.circular(30)),
+              child: TextFormField(
                 controller: emailController,
                 onChanged: (String value) {},
                 cursorColor: Colors.deepPurpleAccent,
@@ -116,9 +175,39 @@ class _LoginSevenPageState extends State<LoginSevenPage> {
             ),
           ),
           const SizedBox(
-            height: 20,
+            height: 25,
           ),
           Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 32),
+            child: Material(
+              elevation: 2.0,
+              borderRadius: const BorderRadius.all(Radius.circular(30)),
+              child: TextFormField(
+                controller: phoneController,
+                onChanged: (String value) {},
+                cursorColor: Colors.deepPurpleAccent,
+                decoration: const InputDecoration(
+                    hintText: "Phone no.",
+                    prefixIcon: Material(
+                      elevation: 0,
+                      borderRadius: BorderRadius.all(Radius.circular(30)),
+                      child: Icon(
+                        Icons.phone_rounded,
+                        color: Colors.deepPurpleAccent,
+                      ),
+                    ),
+                    border: InputBorder.none,
+                    contentPadding:
+                        EdgeInsets.symmetric(horizontal: 25, vertical: 13)),
+              ),
+            ),
+          ),
+          const SizedBox(
+            height: 25,
+          ),
+
+          
+           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 32),
             child: Material(
               elevation: 2.0,
@@ -147,36 +236,54 @@ class _LoginSevenPageState extends State<LoginSevenPage> {
             height: 25,
           ),
           Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 32),
+            child: Material(
+              elevation: 2.0,
+              borderRadius: const BorderRadius.all(Radius.circular(30)),
+              child: TextFormField(
+                controller: confirmpasswordController,
+                onChanged: (String value) {},
+                cursorColor: Colors.deepPurpleAccent,
+                decoration: const InputDecoration(
+                    hintText: "Confirm password",
+                    prefixIcon: Material(
+                      elevation: 0,
+                      borderRadius: BorderRadius.all(Radius.circular(30)),
+                      child: Icon(
+                        Icons.lock,
+                        color: Colors.deepPurpleAccent,
+                      ),
+                    ),
+                    border: InputBorder.none,
+                    contentPadding:
+                        EdgeInsets.symmetric(horizontal: 25, vertical: 13)),
+              ),
+            ),
+          ),
+          const SizedBox(
+            height: 25,
+          ),
+
+
+
+          Padding(
               padding: const EdgeInsets.symmetric(horizontal: 32),
               child: Container(
                 decoration: const BoxDecoration(
                     borderRadius: BorderRadius.all(Radius.circular(100)),
                     color: Colors.deepPurpleAccent),
                 child: TextButton(
-
-                  child: 
-                  
-                  ValueListenableBuilder(valueListenable: isClicked, 
-                  builder: (context, value, child) {
-
-                    if(isClicked.value == true){ return Center(child: CircularProgressIndicator(),);} 
-                    else{
-                      return
-                       Text(
-                    "Login",
+                  child: const Text(
+                    "Register",
                     style: TextStyle(
                         color: Colors.white,
                         fontWeight: FontWeight.w700,
                         fontSize: 18),
-                  );
-                    }
-                   
-                  },
                   ),
                   onPressed: () async{
-                    isClicked.value = true;
+                    regCheck();
                     print('hello');
-                    await loginCheck();
+                   
                     //await loginApi(emailController.text, passwordController.text);
                   },
                 ),
@@ -184,85 +291,54 @@ class _LoginSevenPageState extends State<LoginSevenPage> {
           const SizedBox(
             height: 20,
           ),
-          const Center(
-            child: Text(
-              "FORGOT PASSWORD ?",
-              style: TextStyle(
-                  color: Colors.deepPurpleAccent, fontSize: 12, fontWeight: FontWeight.w700),
-            ),
-          ),
-          const SizedBox(
-            height: 40,
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              Text(
-                "Don't have an Account ? ",
-                style: TextStyle(
-                    color: Colors.black,
-                    fontSize: 12,
-                    fontWeight: FontWeight.normal),
-              ),
-              TextButton(onPressed: (){
-                 Navigator.push(
-              context,
-              MaterialPageRoute(builder: (context) => Reg1()),
-            );
-              }, child: Text("Sign Up ",
-                  style: TextStyle(
-                      color: Colors.deepPurpleAccent,
-                      fontWeight: FontWeight.w500,
-                      fontSize: 12,
-                      decoration: TextDecoration.underline)),)
-            ],
-          )
+       
         ],
       ),
     );
   }
 
   //login func
-  loginCheck() async{
-    print("here");
-    final res = await loginApi(emailController.text, passwordController.text);
-    //print(res!.type);
-    if (res != null){
-      isClicked.value = false;
-      ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-                content: Text("successfully logined"),
+  regCheck() async{
+    final res =  await regApi(firstnameController.text, passwordController.text, emailController.text, lastnameController.text, phoneController.text);
+    if (res == "success") {
+         ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                content: Text("successfully registered"),
                 backgroundColor: Colors.green,
                 behavior: SnackBarBehavior.floating,
                 margin: EdgeInsets.all(10),
                 duration: Duration(seconds:3)));
-      if (res.type=="user") {
-        
-        Navigator.push(
+
+                       Navigator.push(
               context,
-              MaterialPageRoute(builder: (context) => MyHomePage1()));   
-      }
-      if (res.type=="staff") {
-        isClicked.value = false;
-        Navigator.push(
-              context,
-              MaterialPageRoute(builder: (context) => staffhome()));
-        
-      } 
+              MaterialPageRoute(builder: (context) => LoginSevenPage()));
     }
     else{
-      isClicked.value = false;
-      ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-                content: Text("Invalid credentials"),
+        ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                content: Text("Something went wrong"),
                 backgroundColor: Colors.red,
                 behavior: SnackBarBehavior.floating,
                 margin: EdgeInsets.all(10),
                 duration: Duration(seconds:8)));
     }
-    isClicked.value = false;
+    // print(res!.type);
+    // if (res != null){
+   
+    //   if (res.type=="user") {
+ 
+        
+    //   }
+    // }
+    // else{
     
+    // }
+
+    //   if (res.type=="staff") {
+    //     Navigator.push(
+    //           context,
+    //           MaterialPageRoute(builder: (context) => staffhome()));
+        
+    //   }     
   }
-
-
 }
 
 class WaveClipper1 extends CustomClipper<Path> {

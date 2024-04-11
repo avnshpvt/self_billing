@@ -62,7 +62,8 @@ class staff_userScreen extends StatelessWidget {
                   Container(
                     width: w!*0.85,
                     height: h!*0.85,
-              child: MobileScanner(
+              child: 
+              MobileScanner(
                 controller: MobileScannerController(
                   detectionSpeed: DetectionSpeed.noDuplicates,
                   returnImage: true,
