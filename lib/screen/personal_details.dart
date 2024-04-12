@@ -3,18 +3,22 @@ import 'package:self_billing/constants/sizes.dart';
 import 'package:self_billing/customeWidget/textfield.dart';
 
 class personal_details extends StatelessWidget {
-  personal_details({super.key});
+  final String fname;
+  final String lname;
+  final String email;
+  final String phoneno;
 
-  final TextEditingController firstnameController = TextEditingController();
-  final TextEditingController lastnameController = TextEditingController();
-  final TextEditingController emailController = TextEditingController();
-  final TextEditingController phoneController = TextEditingController();
-  final TextEditingController locationController = TextEditingController();
-  
-
+  personal_details({super.key, required this.fname, required this.lname, required this.email, required this.phoneno});
 
   @override
   Widget build(BuildContext context) {
+
+  final TextEditingController firstnameController = TextEditingController(text: fname);
+  final TextEditingController lastnameController = TextEditingController(text: lname);
+  final TextEditingController emailController = TextEditingController(text: email);
+  final TextEditingController phoneController = TextEditingController(text: phoneno);
+  //final TextEditingController locationController = TextEditingController();
+
     return Scaffold(
       appBar: AppBar(
         title: Text('Personal Details',style: TextStyle(color: Colors.white),),
@@ -35,7 +39,7 @@ class personal_details extends StatelessWidget {
             SizedBox(height: 10,),
             CustomeTextfield(username: 'Phone no.',prifix: Icon(Icons.phone_android_outlined,color: Colors.deepPurple), controller: phoneController,),
             SizedBox(height: 10,),
-            CustomeTextfield(username: 'Address',prifix: Icon(Icons.location_city_sharp,color: Colors.deepPurple), controller: locationController,),
+            //CustomeTextfield(username: 'Address',prifix: Icon(Icons.location_city_sharp,color: Colors.deepPurple), controller: locationController,),
             //SizedBox(height: 10,),
             
             SizedBox(height: 110),

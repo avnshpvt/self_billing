@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:self_billing/constants/constantVariables.dart';
 import 'package:self_billing/constants/sizes.dart';
 import 'package:self_billing/screen/change_password.dart';
+import 'package:self_billing/screen/login.dart';
 import 'package:self_billing/screen/orderhistory.dart';
 import 'package:self_billing/screen/personal_details.dart';
 import 'package:self_billing/screen/review.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 
 class ProfileOnePage extends StatelessWidget {
@@ -38,7 +41,7 @@ class ProfileOnePage extends StatelessWidget {
                   children: [IconButton(onPressed: () {
     Navigator.push(
       context,
-      MaterialPageRoute(builder: (context) => personal_details(),));
+      MaterialPageRoute(builder: (context) => personal_details(fname: '${profile[0].firstName}', lname: '${profile[0].lastName}', email: '${profile[0].email}', phoneno: '${profile[0].phoneNo}',),));
                   }, icon: Icon(Icons.edit))],
                 ),
                 Row(
@@ -59,37 +62,15 @@ class ProfileOnePage extends StatelessWidget {
                 const SizedBox(
                   height: 10,
                 ),
-                const Text(
-                  "Varun Raj",
+                 Text(
+                  "${profile[0].firstName} ${profile[0].lastName}",
                   style: TextStyle(fontSize: 22.0,fontWeight: FontWeight.bold, color: Colors.deepPurpleAccent),
                 ),
-                Text("varun@gmail.com | +91 678956786",style: TextStyle(color: Color.fromARGB(255, 177, 149, 254)),)
+                Text("${profile[0].email} | +91 ${profile[0].phoneNo}",style: TextStyle(color: Color.fromARGB(255, 177, 149, 254)),)
                 //
               ],
             ),
           ),
-    
-          // const ListTile(
-          //   title: Text(
-          //     "Email",
-          //     style: TextStyle(color: Colors.deepPurpleAccent, fontSize: 12.0),
-          //   ),
-          //   subtitle: Text(
-          //     "ram@kumar.com",
-          //     style: TextStyle(fontSize: 18.0),
-          //   ),
-          //),
-          //const Divider(),
-          // const ListTile(
-          //   title: Text(
-          //     "Phone",
-          //     style: TextStyle(color: Colors.deepPurpleAccent, fontSize: 12.0),
-          //   ),
-          //   subtitle: Text(
-          //     "+977 9818225533",
-          //     style: TextStyle(fontSize: 18.0),
-          //   ),
-          // ),
           h10,
           InkWell(child:InkWell(
                   onTap: () {
@@ -117,7 +98,13 @@ class ProfileOnePage extends StatelessWidget {
           h3,
           profileButtons(Icons.info, "About us"),
           h3,
-          profileButtons(Icons.logout, "Logout"),
+          InkWell(
+            onTap: () async{
+              final shared = await SharedPreferences.getInstance();
+              shared.clear();
+              Navigator.of(context).push(MaterialPageRoute(builder: (context) => LoginSevenPage(),));
+            },
+            child: profileButtons(Icons.logout, "Logout")),
 
 
         ],

@@ -45,6 +45,7 @@ dependencies:
   data_table_2:
   upi_india:
   dio: ^5.4.2+1
+  shared_preferences:
   
 dev_dependencies:
   flutter_test:

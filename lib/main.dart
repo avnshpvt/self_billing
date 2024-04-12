@@ -8,6 +8,7 @@ import 'package:self_billing/screen/personal_details.dart';
 import 'package:self_billing/screen/profile.dart';
 import 'package:self_billing/screen/review.dart';
 import 'package:self_billing/screen/sample.dart';
+import 'package:self_billing/screen/splash.dart';
 import 'package:self_billing/screen/staff_home.dart';
 import 'package:self_billing/screen/staff_userhome.dart';
 import 'package:self_billing/screen/trolly.dart';
@@ -29,12 +30,10 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Shopping Cart Example',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
       home:
-      HomeScreen()
+      SplashScreen()
+      //LoginSevenPage()
+      //HomeScreen()
       //UpiPaymentScreen()
       //ApiCheckScreen(),
        //staff_userScreen(),

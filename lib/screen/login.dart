@@ -3,11 +3,15 @@
  * profile: https://github.com/sudeepthapa
   */
 import 'package:flutter/material.dart';
+import 'package:self_billing/constants/constantVariables.dart';
 import 'package:self_billing/screen/bar.dart';
 import 'package:self_billing/screen/reg.dart';
 import 'package:self_billing/screen/registration.dart';
 import 'package:self_billing/screen/staff_home.dart';
 import 'package:self_billing/services/loginApi.dart';
+import 'package:self_billing/services/user/ViewCategoryApi.dart';
+import 'package:self_billing/services/user/ViewProductApi.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class LoginSevenPage extends StatefulWidget {
   static const String path = "lib/src/pages/login/login7.dart";
@@ -60,8 +64,8 @@ class _LoginSevenPageState extends State<LoginSevenPage> {
                   height: 300,
                   decoration: const BoxDecoration(
                       gradient: LinearGradient(
-                          colors: [Colors.deepPurpleAccent, Color.fromARGB(255, 152, 118, 245)])),
-                  child: Column(
+                          colors: [Color.fromRGBO(124, 77, 255, 1), Color.fromARGB(255, 152, 118, 245)])),
+                  child: const Column(
                     children: const <Widget>[
                       SizedBox(
                         height: 40,
@@ -228,7 +232,14 @@ class _LoginSevenPageState extends State<LoginSevenPage> {
     final res = await loginApi(emailController.text, passwordController.text);
     //print(res!.type);
     if (res != null){
+      getProducts();
+      getCategory();
+      final shared = await SharedPreferences.getInstance();
+      shared.setBool("isLogedin", true);
+      shared.setString("lid", res.loginid.toString());
+      shared.setString("type", res.type);
       isClicked.value = false;
+      
       ScaffoldMessenger.of(context).showSnackBar(SnackBar(
                 content: Text("successfully logined"),
                 backgroundColor: Colors.green,
@@ -260,6 +271,25 @@ class _LoginSevenPageState extends State<LoginSevenPage> {
     }
     isClicked.value = false;
     
+  }
+
+   //view products
+  getProducts() async{
+    final res = await getviewproduct();
+    if (res != null) {
+      products = res;
+    }
+  }
+
+  //getCategory
+  getCategory() async{
+    print("Hi hiiiii");
+    final res = await getCategoryapi();
+    if (res != null) {
+      print("he he he");
+      categories = res;
+      print("cat $categories");
+    }
   }
 
 

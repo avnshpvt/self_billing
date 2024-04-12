@@ -12,9 +12,7 @@ class MyCartScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        leading: IconButton(icon:Icon(Icons.arrow_back_ios) ,onPressed: () {
-          
-        },),
+        automaticallyImplyLeading: true,
        centerTitle: true,
        title: const Text('My Cart' ,style: const TextStyle(
                      color: Colors.white, fontWeight: FontWeight.bold)),
@@ -25,21 +23,14 @@ class MyCartScreen extends StatelessWidget {
       body: Container(
         height: MediaQuery.of(context).size.height,
         width: double.maxFinite,
-        color: AppColors.myCartBackgroundColor,
+        color: AppColors.backgroundColor,
         child: Center(
-          child: Container(
-            decoration: BoxDecoration(
-                color: AppColors.backgroundColor,
-                borderRadius: BorderRadius.only(
-                    topLeft: Radius.circular(25),
-                    topRight: Radius.circular(25))),
-            padding: EdgeInsets.all(10),
-            width: double.infinity,
-            height: double.infinity,
+          child: Padding(
+            padding: const EdgeInsets.fromLTRB(8,0,8,0,),
             child: Column(
              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-
+            
                 // row of text and icon
                 Column(
                   children: [
@@ -51,19 +42,18 @@ class MyCartScreen extends StatelessWidget {
                     Column(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
-                        MyCartItemsContainer(
-                        
+                        MyCartItemsContainer( 
                             image: 'https://media.dev.to/cdn-cgi/image/width=1000,height=420,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2Fodibskvc8stbhzd5t0zx.png',
                             itemName: 'Nike Sneaker',
                             itemPrice: 'NGN250,000',
                             itemQuantity: 2),
                         MyCartItemsContainer(
-                            image: 'https://in.images.search.yahoo.com/search/images;_ylt=AwrKACoJIdxlGuErESrmHAx.?p=macbook+air&type=E210IN826G0&fr=mcafee&fr2=p%3As%2Cv%3Av%2Cm%3Apivot#id=42&iurl=http%3A%2F%2Fwww.notebookcheck.net%2Fuploads%2Ftx_nbc2%2Fair13teaser.jpg&action=click',
+                            image: 'https://images.techhive.com/images/article/2015/04/macbook-no-glow-2-100578153-orig.jpg',
                             itemName: 'Apple Laptop',
                             itemPrice: 'NGN350,000',
                             itemQuantity: 1),
                         MyCartItemsContainer(
-                            image: 'https://in.images.search.yahoo.com/search/images;_ylt=AwrKF4sLIdxlUfwmaCi9HAx.;_ylu=c2VjA3NlYXJjaARzbGsDYnV0dG9u;_ylc=X1MDMjExNDcyMzAwNQRfcgMyBGZyA21jYWZlZQRmcjIDcDpzLHY6aSxtOnNiLXRvcARncHJpZANzRDBBalRMclQyZW5IZmx6eEx5RHFBBG5fcnNsdAMwBG5fc3VnZwM4BG9yaWdpbgNpbi5pbWFnZXMuc2VhcmNoLnlhaG9vLmNvbQRwb3MDMARwcXN0cgMEcHFzdHJsAzAEcXN0cmwDOQRxdWVyeQNsYWR5JTIwc2hvZQR0X3N0bXADMTcwODkyNTMxNg--?p=lady+shoe&fr=mcafee&fr2=p%3As%2Cv%3Ai%2Cm%3Asb-top&ei=UTF-8&x=wrt&type=E210IN826G0#id=17&iurl=https%3A%2F%2Fwww.eyefootwear.com%2Fuserfiles%2Fproduct%2Fimage%2F393137419.jpg&action=click',
+                            image: 'https://s2.best-wallpaper.net/wallpaper/1920x1200/1712/Nike-sneakers-shoes_1920x1200.jpg',
                             itemName: 'Nike Sneaker',
                             itemPrice: 'NGN50,000',
                             itemQuantity: 1)
@@ -71,14 +61,14 @@ class MyCartScreen extends StatelessWidget {
                     ),
                   ],
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 50,
                 ),
                 // row of text and button
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-
+            
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
@@ -99,13 +89,13 @@ class MyCartScreen extends StatelessWidget {
                      color: Color.fromRGBO(76, 158, 235, 1))),
                       ],
                     ),
-
-
+            
+            
                      InkWell(
                       onTap: () {
                         Navigator.push(
-      context,
-      MaterialPageRoute(builder: (context) => PaymentOptionScreen()));
+                  context,
+                  MaterialPageRoute(builder: (context) => PaymentOptionScreen()));
                       },
                        child: Container(
                                 color: Colors.yellow.shade600,

@@ -7,8 +7,8 @@ import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:self_billing/constants/sizes.dart';
 
 class ProductDetailsPage extends StatelessWidget {
-  
-  const ProductDetailsPage({super.key});
+  bool? isScanned;
+  ProductDetailsPage({super.key, this.isScanned});
 
   @override
   Widget build(BuildContext context) {
@@ -24,7 +24,7 @@ class ProductDetailsPage extends StatelessWidget {
           //ProfileBtn(),
         ],
       ),
-      body: Column(
+      body: ListView(
         children: [
         Container(height: h!*0.3,color:  Color.fromARGB(255, 239, 237, 234),child: Center(child: Image(image: NetworkImage("https://th.bing.com/th/id/R.456346dda0de6870093b346ce3631840?rik=rElGTNT%2bYbfzBQ&riu=http%3a%2f%2fwww.pngplay.com%2fwp-content%2fuploads%2f1%2fSliced-Strawberry-Transparent-File.png&ehk=R93yNroZg138putw%2bjHx4GudgmC%2fKTyQe4JZqbC1%2bl4%3d&risl=&pid=ImgRaw&r=0"))),),
         Container(decoration: BoxDecoration(border: Border.all(style: BorderStyle.none),borderRadius: 
@@ -46,23 +46,24 @@ class ProductDetailsPage extends StatelessWidget {
               ),
               
             ),
-            Padding(
-              padding: const EdgeInsets.only(left: 12.0),
-              child: RatingBar.builder(
-                      itemSize: 20,
-                 initialRating: 3,
-                 minRating: 1,
-                 direction: Axis.horizontal,
-                 allowHalfRating: true,
-                 itemCount: 5,
-                 itemPadding: EdgeInsets.symmetric(horizontal: 1.0),
-                 itemBuilder: (context, _) => Icon(
-                   Icons.star,
-                   color: Colors.amber,
-                 ), onRatingUpdate: (double value) {  },
-                      ), 
+            // Padding(
+            //   padding: const EdgeInsets.only(left: 12.0),
+            //   child: RatingBar.builder(
+            //           itemSize: 20,
+            //      initialRating: 3,
+            //      minRating: 1,
+            //      direction: Axis.horizontal,
+            //      allowHalfRating: true,
+            //      itemCount: 5,
+            //      itemPadding: EdgeInsets.symmetric(horizontal: 1.0),
+            //      itemBuilder: (context, _) => Icon(
+            //        Icons.star,
+            //        color: Colors.amber,
+            //      ), onRatingUpdate: (double value) {  },
+            //           ), 
               
-            ),h25,
+            // ),
+            h5,
             Padding(
               padding: const EdgeInsets.only(left: 12.0),
               child: Text("Description",style: TextStyle(fontSize: 21),),

@@ -205,8 +205,6 @@ class _Reg1State extends State<Reg1> {
           const SizedBox(
             height: 25,
           ),
-
-          
            Padding(
             padding: const EdgeInsets.symmetric(horizontal: 32),
             child: Material(
@@ -319,25 +317,7 @@ class _Reg1State extends State<Reg1> {
                 behavior: SnackBarBehavior.floating,
                 margin: EdgeInsets.all(10),
                 duration: Duration(seconds:8)));
-    }
-    // print(res!.type);
-    // if (res != null){
-   
-    //   if (res.type=="user") {
- 
-        
-    //   }
-    // }
-    // else{
-    
-    // }
-
-    //   if (res.type=="staff") {
-    //     Navigator.push(
-    //           context,
-    //           MaterialPageRoute(builder: (context) => staffhome()));
-        
-    //   }     
+    }     
   }
 }
 

@@ -10,8 +10,7 @@ class Review extends StatelessWidget {
     w = MediaQuery.of(context).size.width;
     return Scaffold(
         appBar: AppBar(
-          automaticallyImplyLeading: false,
-          leading: IconButton(onPressed: (){}, icon: Icon(Icons.arrow_back_ios)),
+          automaticallyImplyLeading: true,
         ),
         body: Padding(
           padding: const EdgeInsets.all(20.0),
